@@ -11,4 +11,14 @@ join c_bpartner cb on cb.c_bpartner_id = mc.c_bpartner_id
 join ad_user au on au.ad_user_id = mc.ad_user_id 
 where mc3.value != 'CO' and mc3.value != 'IN'
 
-mp_caserequest -> tabel untuk mencatatkan unit yang sedang breakdown / di breakdown-kan (seperti service, pcr, backlog)
+mp_caserequest -> tabel untuk menampilkan unit yang sedang breakdown / di breakdown-kan (seperti service, pcr, backlog)
+mp_casestatus -> tabel untuk menampilkan status case request (seperti open, check by mechanic, in repair, in delay, completed & invalid report)
+mp_casedelay -> tabel untuk menampilkan status delay pada case request (seperti open, in-progress & completed)
+mp_delaycategory -> tabel untuk menampilkan delay category (seperti B0-On Progress, B1-Waiting Part, B2-Waiting ManPower, B3-Accident, dll)
+c_doctype -> tabel untuk menampilkan status document pada case request (seperti draft, in-progress & completed)
+mp_workorder -> tabel untuk menampilkan pekerjaan untuk case request tersebut (seperti WO Corrective, WO Backlog, WO Service, WO PCR, WO General, WO Routine, dll)
+mp_workorderstatus -> tabel untuk menampilkan status WO (seperti draft, ready to order, part on hand, executed, completed & void)
+a_asset -> tabel untuk menampilkan semua equipment yang ada di perusahaan
+a_asset_type -> tabel untuk menampilkan semua tipe equipment yang tertulis pada nomor lambung equipment
+c_bpartner -> tabel untuk menampilkan nama employee yang melaporkan bahwa ada equipment yang breakdown / di breakdown-kan
+ad_user -> tabel untuk menampilkan nama employee yang mengecheck kondisi equipment di lapangan
