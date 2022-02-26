@@ -1,0 +1,14 @@
+select * from mp_caserequest mc
+join mp_casestatus mc3 on mc3.mp_casestatus_id = mc.mp_casestatus_id 
+join mp_casedelay mc2 on mc2.mp_caserequest_id = mc.mp_caserequest_id
+join mp_delaycategory md on md.mp_delaycategory_id = mc2.mp_delaycategory_id 
+join mp_workorder mw on mw.mp_caserequest_id = mc.mp_caserequest_id
+join c_doctype cd on cd.c_doctype_id = mw.c_doctype_id 
+join mp_workorderstatus mw2 on mw2.mp_workorderstatus_id = mw.mp_workorderstatus_id 
+join a_asset aa on aa.a_asset_id = mc.a_asset_id
+join a_asset_type aat on aat.a_asset_type_id = aa.a_asset_type_id 
+join c_bpartner cb on cb.c_bpartner_id = mc.c_bpartner_id
+join ad_user au on au.ad_user_id = mc.ad_user_id 
+where mc3.value != 'CO' and mc3.value != 'IN'
+
+mp_caserequest -> tabel untuk mencatatkan unit yang sedang breakdown / di breakdown-kan (seperti service, pcr, backlog)
